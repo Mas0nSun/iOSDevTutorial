@@ -1,1 +1,1 @@
-从 0 开始学习 iOS 开发
+Learn iOS from Scratch

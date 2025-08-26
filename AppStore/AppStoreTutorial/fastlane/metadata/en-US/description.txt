@@ -1,15 +1,15 @@
-解锁你的学习潜能！这款应用专为现代学习者打造，结合互动课程、清晰讲解与实用练习，让你快速上手并持续进步。
+Unlock your learning potential! This app is designed for modern learners, combining interactive courses, clear explanations, and practical exercises to help you get started quickly and make continuous progress.
 
-主要功能：
+Key Features:
 
-- 系统化课程：从基础到进阶，循序渐进
+- Systematic Courses: From basics to advanced, step by step
 
-- 个性化学习路径：根据你的目标定制学习进度
+- Personalized Learning Path: Customize your learning progress based on your goals
 
-- 实用练习：边学边练，巩固所学知识
+- Practical Exercises: Learn by doing, reinforce your knowledge
 
-- 学习数据追踪：记录学习进展，见证成长
+- Learning Progress Tracking: Record your learning journey and witness your growth
 
-- 随时随地：支持离线学习，打破时间与空间限制
+- Anytime, Anywhere: Support offline learning, breaking time and space limitations
 
-无论你是想入门新技能，还是提升已有水平，这款应用都能为你提供高效、轻松的学习体验。
+Whether you want to learn new skills or improve existing ones, this app provides an efficient and enjoyable learning experience.
