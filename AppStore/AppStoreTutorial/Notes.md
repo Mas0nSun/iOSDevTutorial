@@ -85,6 +85,24 @@ App 数据分析网站: https://app.diandian.com/
 5. 更新 metadata/ 文件夹下不同的语言内容
 6. 调用 fastlane sync_metadata
 
+
+如何制作技术支持网站: 
+- 使用 notion
+    1. 打开 notion 官网 (https://www.notion.com/)
+    2. 新建一个 page
+    3. 输入我们的联系方式
+    4. 公开我们的 page
+- 使用 qq 文档
+    同上, 只是需要在 qq 文档的 web 中操作 (https://docs.qq.com/)
+    
+    
+如何制作隐私政策网站: 
+- 可以在 google 搜索 app 隐私政策生成
+- 或者使用: https://app-privacy-policy-generator.nisrulz.com/
+    1. 在工具中按自己的需求填写
+    2. 使用 notion/qq 文档, 生成可外部访问的网站
+    3. 将网址填写到审核页面
+
 ### 5. App 定价
 免费, 一次性付费, 有内购 (订阅, 一次性买断) 等
 
