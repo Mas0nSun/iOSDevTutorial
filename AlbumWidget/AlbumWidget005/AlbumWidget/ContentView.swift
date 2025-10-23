@@ -38,19 +38,7 @@ struct ContentView: View {
                 })
             } else {
                 // 主应用界面
-                VStack {
-                    Text("欢迎使用相册小部件应用！")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .padding()
-                    
-                    Text("引导页已完成，现在进入主应用流程")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                        .padding()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color(.systemBackground))
+                WidgetPreviewView()
             }
         }
         .onAppear {
