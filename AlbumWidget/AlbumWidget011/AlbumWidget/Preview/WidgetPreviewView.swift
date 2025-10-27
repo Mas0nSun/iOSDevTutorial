@@ -9,6 +9,10 @@ import SwiftUI
 
 struct WidgetPreviewView: View {
     @State private var showSearchView = false
+    /// 如果我们要 sheet 出一个页面, 我们有 2 种做法
+    /// 1. 使用 Binding<Bool>, showUpdateView: Bool
+    /// 2. 使用 Binding<Item>, selectedWidgetForUpdate: AlbumWidgetData
+    @State private var selectedWidgetForUpdate: AlbumWidgetData?
     @StateObject private var dataManager = WidgetDataManager.shared
     
     var body: some View {
@@ -37,6 +41,11 @@ struct WidgetPreviewView: View {
         }
         .sheet(isPresented: $showSearchView) {
             SearchAlbumView()
+        }
+        .sheet(item: $selectedWidgetForUpdate) { widget in
+            NavigationView {
+                AlbumWidgetUpdateView(widgetData: widget)
+            }
         }
     }
     
@@ -94,7 +103,13 @@ struct WidgetPreviewView: View {
                     GridItem(.flexible())
                 ], spacing: spacing) {
                     ForEach(dataManager.widgets, id: \.id) { widget in
-                        WidgetCardView(widget: widget, size: itemWidth)
+                        WidgetCardView(
+                            widget: widget, 
+                            size: itemWidth,
+                            onLongPress: {
+                                selectedWidgetForUpdate = widget
+                            }
+                        )
                     }
                 }
                 .padding(.horizontal, 16)
@@ -110,6 +125,7 @@ struct WidgetPreviewView: View {
 struct WidgetCardView: View {
     let widget: AlbumWidgetData
     let size: CGFloat
+    let onLongPress: () -> Void
     @State private var isPressed = false
     @StateObject private var dataManager = WidgetDataManager.shared
     
@@ -130,7 +146,7 @@ struct WidgetCardView: View {
         .onLongPressGesture(minimumDuration: 0) { pressing in
             isPressed = pressing
         } perform: {
-            // TODO: 实现长按菜单
+            onLongPress()
         }
     }
 }

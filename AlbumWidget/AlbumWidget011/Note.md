@@ -53,8 +53,12 @@
             总结: 
             --- 存储: 当用户创建一个 widget 时, 我们实际上是把 widget 卡片中的 UI 参数, 
                 转换成了一个 model (数据结构), 同时将 model (XXXWidget) 编码成 Data 然后以文件的形式存储到手机沙盒中
-            --- 加载: 从沙盒中获取到 file, 然后转换成 Data, 再解码成我们的 model (XXXWidget), 然后去把参数丢给我们的 AlbumWidgetView
+            --- 加载(读取): 从沙盒中获取到 file, 然后转换成 Data, 再解码成我们的 model (XXXWidget), 然后去把参数丢给我们的 AlbumWidgetView
                 同时将 AlbumWidgetView 放到 App 首页里
+            --- Update: 读数据 -> 然后改数据 -> 保存
+            --- Delete: 读数据 -> 删掉某条 -> 保存
+            
+            CRUD: 创建/读取/更新/删除
                 
                 e.g: 其他类别的应用如 Todo, 笔记 (Note), 记账 (Record)
     3. 小组件预览 List
