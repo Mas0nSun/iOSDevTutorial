@@ -49,7 +49,7 @@
         - 添加是否展示 info 功能 (歌曲名称, 作者名) ✅
         - 支持切换 size
         - 支持切换 theme 
-        - 实现创建 widget 功能, 点击创建按钮将 widget 保存
+        - 实现创建 widget 功能, 点击创建按钮将 widget 保存 ✅
             总结: 
             --- 存储: 当用户创建一个 widget 时, 我们实际上是把 widget 卡片中的 UI 参数, 
                 转换成了一个 model (数据结构), 同时将 model (XXXWidget) 编码成 Data 然后以文件的形式存储到手机沙盒中
@@ -61,8 +61,8 @@
             CRUD: 创建/读取/更新/删除
                 
                 e.g: 其他类别的应用如 Todo, 笔记 (Note), 记账 (Record)
-    3. 小组件预览 List
-    4. Mini 播放器
+    3. 小组件预览 List ✅
+    4. Mini 播放器: 需要在 App 内试听音乐
     
     
     
@@ -71,14 +71,15 @@
     
 ### 内购: 解锁付费功能
 
-### 新建/编辑 Widget: 允许用户自定义 Widget 的展示 UI
-
 ### 用户帮助页面: 一些常见的问题分析 + 新手引导
-
-### 搜索音乐: 搜索 Apple Music 中的歌曲/专辑
 
 
 ## Widget 核心功能
+
+### 配置小组件功能 (让 App 支持小组件 Extension)
+    
+    注意: 当我们绘制一个 View 的时候, 如果它带有背景, 那么在 WidgetExtension 中 apple 会给整个 View 增加 padding
+    这时候我们需要把 View 的`前景`(唱片+文本)和`背景`(Blur+封面图) 分开, 将`背景`放到 `.containerBackground(for: .widget) { // 这里 }`
 
 ### 数据同步: 允许用户在 App 内添加数据, 在 Widget 中可选择已配置的数据
 

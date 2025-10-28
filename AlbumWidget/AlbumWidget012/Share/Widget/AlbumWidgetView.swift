@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct AlbumWidgetView: View {
+    // 是否在 widget extension 中展示
+    // false: 是在 app 内
+    // true: 是在 widget extension 中
+    let isWidget: Bool
     // 可配置参数
     let albumImage: UIImage?
     let showInfo: Bool
     let title: String?
     let artist: String?
     
-    init(albumImage: UIImage? = nil, showInfo: Bool = false, title: String? = nil, artist: String? = nil) {
+    init(
+        isWidget: Bool,
+        albumImage: UIImage? = nil,
+        showInfo: Bool = false,
+        title: String? = nil,
+        artist: String? = nil
+    ) {
+        self.isWidget = isWidget
         self.albumImage = albumImage
         self.showInfo = showInfo
         self.title = title
@@ -25,29 +37,42 @@ struct AlbumWidgetView: View {
         GeometryReader { geometry in
             let size = min(geometry.size.width, geometry.size.height)
             // 毛玻璃背景
-            backgroundLayer(size: size)
-                .frame(
-                    width: geometry.size.width,
-                    height: geometry.size.height
-                )
-                .overlay(alignment: .bottom) {
-                    // 前景视图
-                    foregroundView(size: size)
-                }
-                .clipShape(RoundedRectangle(cornerRadius: size * 0.2))
-                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+            if isWidget {
+                // 小组件分支
+                Color.clear
+                    .overlay(alignment: .bottom) {
+                        // 前景视图
+                        foregroundView(size: size)
+                    }
+                    .containerBackground(for: .widget) {
+                        backgroundLayer(width: geometry.size.width, height: geometry.size.height)
+                    }
+            } else {
+                // app 分支
+                backgroundLayer(width: geometry.size.width, height: geometry.size.height)
+                    .frame(
+                        width: geometry.size.width,
+                        height: geometry.size.height
+                    )
+                    .overlay(alignment: .bottom) {
+                        // 前景视图
+                        foregroundView(size: size)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: size * 0.2))
+                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+            }
         }
     }
     
     // MARK: - 毛玻璃背景层
-    private func backgroundLayer(size: CGFloat) -> some View {
+    private func backgroundLayer(width: CGFloat, height: CGFloat) -> some View {
         ZStack {
             // 背景图片
             if let albumImage = albumImage {
                 Image(uiImage: albumImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: size, height: size)
+                    .frame(width: width, height: height)
                     .clipped()
             } else {
                 // 默认渐变背景
@@ -67,14 +92,14 @@ struct AlbumWidgetView: View {
     
     private func foregroundView(size: CGFloat) -> some View {
         // 唱片 + 作者 + title
-        VStack(spacing: 0) {
+        VStack(spacing: 4) {
             // 唱片区域 - 保持原始大小
             ZStack {
                 // 唱片效果层
-                vinylRecordLayer(size: size)
+                vinylRecordLayer(size: size, isWidget: isWidget)
                 
                 // 中心封面图片
-                centerAlbumCover(size: size)
+                centerAlbumCover(size: size, isWidget: isWidget)
             }
             .frame(width: size, height: size)
             
@@ -87,23 +112,24 @@ struct AlbumWidgetView: View {
     }
     
     // MARK: - 唱片效果层
-    private func vinylRecordLayer(size: CGFloat) -> some View {
-        ZStack {
-            // 黑色唱片背景 - 使用比例 0.85
+    private func vinylRecordLayer(size: CGFloat, isWidget: Bool) -> some View {
+        let recordSize = isWidget ? size : size * 0.85
+        return ZStack {
+            // 黑色唱片背景
             Circle()
                 .fill(Color.black)
-                .frame(width: size * 0.85, height: size * 0.85)
+                .frame(width: recordSize, height: recordSize)
             
             // 唱片圆环纹理 - 动态计算圆环数量和间距
             let ringCount = max(15, Int(size / 10)) // 根据尺寸动态调整圆环数量
-            let ringSpacing = size * 0.85 / CGFloat(ringCount) // 动态计算间距
+            let ringSpacing = recordSize / CGFloat(ringCount) // 动态计算间距
             
             ForEach(0..<ringCount, id: \.self) { index in
                 Circle()
                     .stroke(Color.gray.opacity(0.3), lineWidth: 0.5)
                     .frame(
-                        width: size * 0.85 - CGFloat(index) * ringSpacing,
-                        height: size * 0.85 - CGFloat(index) * ringSpacing
+                        width: recordSize - CGFloat(index) * ringSpacing,
+                        height: recordSize - CGFloat(index) * ringSpacing
                     )
             }
             
@@ -137,18 +163,19 @@ struct AlbumWidgetView: View {
                     .frame(width: size * 0.4, height: size * 0.4)
                     .offset(x: size * 0.15)
             }
-            .frame(width: size * 0.85, height: size * 0.85)
+            .frame(width: recordSize, height: recordSize)
         }
     }
     
     // MARK: - 中心封面图片
-    private func centerAlbumCover(size: CGFloat) -> some View {
-        Group {
+    private func centerAlbumCover(size: CGFloat, isWidget: Bool) -> some View {
+        let coverSize = size * 0.3
+        return Group {
             if let albumImage = albumImage {
                 Image(uiImage: albumImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: size * 0.3, height: size * 0.3)
+                    .frame(width: coverSize, height: coverSize)
                     .clipShape(Circle())
                     .overlay(
                         Circle()
@@ -164,7 +191,7 @@ struct AlbumWidgetView: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .frame(width: size * 0.3, height: size * 0.3)
+                    .frame(width: coverSize, height: coverSize)
                     .overlay(
                         Circle()
                             .stroke(Color.white.opacity(0.2), lineWidth: max(1, size * 0.01))
@@ -200,11 +227,15 @@ struct AlbumWidgetView: View {
 #Preview {
     VStack(spacing: 24) {
         // 不显示信息的版本
-        AlbumWidgetView(albumImage: UIImage(named: "widget-cover-preview"))
+        AlbumWidgetView(
+            isWidget: false,
+            albumImage: UIImage(named: "widget-cover-preview")
+        )
             .frame(width: 50, height: 50)
         
         // 显示信息的版本
         AlbumWidgetView(
+            isWidget: false,
             albumImage: UIImage(named: "widget-cover-preview"),
             showInfo: true,
             title: "专辑名称",
@@ -213,6 +244,7 @@ struct AlbumWidgetView: View {
         .frame(width: 150, height: 150)
         
         AlbumWidgetView(
+            isWidget: false,
             albumImage: UIImage(named: "widget-cover-preview"),
             showInfo: false,
             title: "专辑名称",
@@ -222,11 +254,13 @@ struct AlbumWidgetView: View {
         
         // 大尺寸显示信息版本
         AlbumWidgetView(
+            isWidget: true,
             albumImage: UIImage(named: "widget-cover-preview"),
             showInfo: true,
             title: "很长的专辑名称测试",
             artist: "很长的艺术家名称测试"
         )
         .frame(width: 200, height: 200)
+        .border(.red)
     }
 }

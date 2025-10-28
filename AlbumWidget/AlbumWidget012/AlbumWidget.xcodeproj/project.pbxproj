@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DAA35B912E61934C008A980B /* Note.md in Resources */ = {isa = PBXBuildFile; fileRef = DAA35B902E61934C008A980B /* Note.md */; };
+		DAC976022EAF9CAD00D75E60 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC976012EAF9CAD00D75E60 /* WidgetKit.framework */; };
+		DAC976042EAF9CAD00D75E60 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC976032EAF9CAD00D75E60 /* SwiftUI.framework */; };
+		DAC976112EAF9CAF00D75E60 /* AlbumWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DAC975FF2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,13 +28,37 @@
 			remoteGlobalIDString = DAA35B652E6192FA008A980B;
 			remoteInfo = AlbumWidget;
 		};
+		DAC9760F2EAF9CAF00D75E60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAA35B5E2E6192FA008A980B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC975FE2EAF9CAD00D75E60;
+			remoteInfo = AlbumWidgetExtensionExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DAC976122EAF9CAF00D75E60 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DAC976112EAF9CAF00D75E60 /* AlbumWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DAA35B662E6192FA008A980B /* AlbumWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA35B732E6192FC008A980B /* AlbumWidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumWidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA35B7D2E6192FC008A980B /* AlbumWidgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumWidgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA35B902E61934C008A980B /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
+		DAC975FF2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AlbumWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC976012EAF9CAD00D75E60 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DAC976032EAF9CAD00D75E60 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -41,6 +68,20 @@
 				Info.plist,
 			);
 			target = DAA35B652E6192FA008A980B /* AlbumWidget */;
+		};
+		DAC976162EAF9CAF00D75E60 /* Exceptions for "AlbumWidgetExtension" folder in "AlbumWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DAC975FE2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension */;
+		};
+		DAC9761A2EAF9E8600D75E60 /* Exceptions for "Share" folder in "AlbumWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Widget/AlbumWidgetView.swift,
+			);
+			target = DAC975FE2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -61,6 +102,22 @@
 		DAA35B802E6192FC008A980B /* AlbumWidgetUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AlbumWidgetUITests;
+			sourceTree = "<group>";
+		};
+		DAC976052EAF9CAD00D75E60 /* AlbumWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DAC976162EAF9CAF00D75E60 /* Exceptions for "AlbumWidgetExtension" folder in "AlbumWidgetExtensionExtension" target */,
+			);
+			path = AlbumWidgetExtension;
+			sourceTree = "<group>";
+		};
+		DAC976192EAF9E7C00D75E60 /* Share */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DAC9761A2EAF9E8600D75E60 /* Exceptions for "Share" folder in "AlbumWidgetExtensionExtension" target */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -87,16 +144,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DAC975FC2EAF9CAD00D75E60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC976042EAF9CAD00D75E60 /* SwiftUI.framework in Frameworks */,
+				DAC976022EAF9CAD00D75E60 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		DAA35B5D2E6192FA008A980B = {
 			isa = PBXGroup;
 			children = (
+				DAC976192EAF9E7C00D75E60 /* Share */,
 				DAA35B902E61934C008A980B /* Note.md */,
 				DAA35B682E6192FA008A980B /* AlbumWidget */,
 				DAA35B762E6192FC008A980B /* AlbumWidgetTests */,
 				DAA35B802E6192FC008A980B /* AlbumWidgetUITests */,
+				DAC976052EAF9CAD00D75E60 /* AlbumWidgetExtension */,
+				DAC976002EAF9CAD00D75E60 /* Frameworks */,
 				DAA35B672E6192FA008A980B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,8 +176,18 @@
 				DAA35B662E6192FA008A980B /* AlbumWidget.app */,
 				DAA35B732E6192FC008A980B /* AlbumWidgetTests.xctest */,
 				DAA35B7D2E6192FC008A980B /* AlbumWidgetUITests.xctest */,
+				DAC975FF2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC976002EAF9CAD00D75E60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAC976012EAF9CAD00D75E60 /* WidgetKit.framework */,
+				DAC976032EAF9CAD00D75E60 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,13 +200,16 @@
 				DAA35B622E6192FA008A980B /* Sources */,
 				DAA35B632E6192FA008A980B /* Frameworks */,
 				DAA35B642E6192FA008A980B /* Resources */,
+				DAC976122EAF9CAF00D75E60 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DAC976102EAF9CAF00D75E60 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DAA35B682E6192FA008A980B /* AlbumWidget */,
+				DAC976192EAF9E7C00D75E60 /* Share */,
 			);
 			name = AlbumWidget;
 			packageProductDependencies = (
@@ -182,6 +264,28 @@
 			productReference = DAA35B7D2E6192FC008A980B /* AlbumWidgetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DAC975FE2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC976152EAF9CAF00D75E60 /* Build configuration list for PBXNativeTarget "AlbumWidgetExtensionExtension" */;
+			buildPhases = (
+				DAC975FB2EAF9CAD00D75E60 /* Sources */,
+				DAC975FC2EAF9CAD00D75E60 /* Frameworks */,
+				DAC975FD2EAF9CAD00D75E60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DAC976052EAF9CAD00D75E60 /* AlbumWidgetExtension */,
+			);
+			name = AlbumWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = AlbumWidgetExtensionExtension;
+			productReference = DAC975FF2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,6 +307,9 @@
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = DAA35B652E6192FA008A980B;
 					};
+					DAC975FE2EAF9CAD00D75E60 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 				};
 			};
 			buildConfigurationList = DAA35B612E6192FA008A980B /* Build configuration list for PBXProject "AlbumWidget" */;
@@ -222,6 +329,7 @@
 				DAA35B652E6192FA008A980B /* AlbumWidget */,
 				DAA35B722E6192FC008A980B /* AlbumWidgetTests */,
 				DAA35B7C2E6192FC008A980B /* AlbumWidgetUITests */,
+				DAC975FE2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +351,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DAA35B7B2E6192FC008A980B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC975FD2EAF9CAD00D75E60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +388,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DAC975FB2EAF9CAD00D75E60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -285,6 +407,11 @@
 			isa = PBXTargetDependency;
 			target = DAA35B652E6192FA008A980B /* AlbumWidget */;
 			targetProxy = DAA35B7E2E6192FC008A980B /* PBXContainerItemProxy */;
+		};
+		DAC976102EAF9CAF00D75E60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC975FE2EAF9CAD00D75E60 /* AlbumWidgetExtensionExtension */;
+			targetProxy = DAC9760F2EAF9CAF00D75E60 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -562,6 +689,66 @@
 			};
 			name = Release;
 		};
+		DAC976132EAF9CAF00D75E60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4TJ7K2DH6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AlbumWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AlbumWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonsun.AlbumWidget.AlbumWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAC976142EAF9CAF00D75E60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4TJ7K2DH6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AlbumWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AlbumWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonsun.AlbumWidget.AlbumWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -597,6 +784,15 @@
 			buildConfigurations = (
 				DAA35B8E2E6192FC008A980B /* Debug */,
 				DAA35B8F2E6192FC008A980B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC976152EAF9CAF00D75E60 /* Build configuration list for PBXNativeTarget "AlbumWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC976132EAF9CAF00D75E60 /* Debug */,
+				DAC976142EAF9CAF00D75E60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

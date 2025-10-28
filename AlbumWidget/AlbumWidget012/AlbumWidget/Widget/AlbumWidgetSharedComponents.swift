@@ -20,6 +20,7 @@ struct WidgetPreviewSection: View {
         VStack(spacing: 16) {
             // 小组件卡片
             AlbumWidgetView(
+                isWidget: false,
                 albumImage: albumImage,
                 showInfo: showInfo,
                 title: title,

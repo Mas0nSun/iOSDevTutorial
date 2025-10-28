@@ -131,6 +131,7 @@ struct WidgetCardView: View {
     
     var body: some View {
         AlbumWidgetView(
+            isWidget: false,
             albumImage: widget.artworkImage,
             showInfo: widget.showInfo,
             title: widget.displayTitle,
