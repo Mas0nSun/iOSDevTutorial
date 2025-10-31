@@ -1,0 +1,59 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "9DF2F3ED",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "8.88",
+      "familyShareable" : true,
+      "internalID" : "8A89E6EA",
+      "localizations" : [
+        {
+          "description" : "xxxx, xxxx",
+          "displayName" : "LifetimeVIP",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "一次性付费终身解锁所有功能",
+          "displayName" : "终身VIP",
+          "locale" : "zh_Hans"
+        }
+      ],
+      "productID" : "AlbumWidgetLifetimeVIP",
+      "referenceName" : "终身会员",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
